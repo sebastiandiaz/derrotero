@@ -1,7 +1,7 @@
 # Derrotero: explorador geográfico de la Mapoteca Digital de la BNC
 
 Explorador geográfico de la [Mapoteca Digital de la Biblioteca Nacional de Colombia](https://www.bibliotecanacional.gov.co/es-co/colecciones/biblioteca-digital/mapoteca/Paginas/index.aspx),
-al modo de MapRank Search: tres vistas (Explorar, ¿Dónde están los mapas?, Datos) construidas sobre el inventario MAPOTECA_2025.7 a partir del
+al modo de MapRank Search: tres vistas (Explorar, Cobertura, Datos) construidas sobre el inventario MAPOTECA_2025.7 a partir del
 rectángulo envolvente de cada uno de los 2 668 registros; filtros por década, tipología y fondo; densidad de coberturas; cartogramas por
 serie, siglo, tipología y departamento; registros con coordenadas por revisar.
 
