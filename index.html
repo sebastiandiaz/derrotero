@@ -1,6 +1,10 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Derrotero de la Mapoteca Digital</title>
-<meta name="description" content="Derrotero: buscador geográfico y serie de cartogramas de la Mapoteca Digital de la Biblioteca Nacional de Colombia">
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Derrotero: explorador geográfico de la Mapoteca Digital de la BNC</title>
+<meta name="description" content="Derrotero: explorador geográfico de la Mapoteca Digital de la Biblioteca Nacional de Colombia — buscador por lugar y serie de cartogramas">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -72,16 +76,19 @@ button,input,select{font:inherit;color:inherit}
 .brand-text small{display:block;font-family:var(--font-ui);font-style:normal;font-size:10.5px;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.85);margin-top:5px}
 .tool{display:flex;align-items:baseline;gap:12px;min-width:0}
 .tool h1{font-family:var(--font-display);font-weight:400;font-style:italic;font-size:27px;margin:0;line-height:1;color:#fff;white-space:nowrap}
-.tool .tagline{font-size:12.5px;color:rgba(255,255,255,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool .tagline{font-size:14px;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mast .count{display:none}
 .mast .dev{margin-left:auto;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;line-height:1.2;font-size:12.5px;color:#fff;white-space:nowrap;padding-right:16px;border-right:1px solid rgba(255,255,255,.35)}
 .mast .dev-k{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.mast .dev-ai{font-size:11px;color:rgba(255,255,255,.7)}
+@media (max-width:1180px){.mast .dev-ai{display:none}}
 .tabs{display:flex;gap:4px}
 .tabs button{border:0;background:none;padding:8px 12px 6px;border-bottom:3px solid transparent;color:#fff;cursor:pointer;font-family:var(--font-display);font-size:17px;line-height:1.1}
 .tabs button:hover{font-style:italic}
 .tabs button[aria-selected="true"]{font-style:italic;border-bottom-color:var(--accent)}
 .mast :focus-visible{outline-color:#fff}
-@media (max-width:980px){.tool .tagline{display:none}}
+@media (max-width:1250px){.tool{flex-direction:column;align-items:flex-start;gap:1px}.tool h1{font-size:23px}.tool .tagline{font-size:12.5px;white-space:normal;line-height:1.15;max-width:260px}}
+@media (max-width:760px){.tool .tagline{display:none}}
 @media (max-width:760px){.mast{gap:8px 14px;padding:8px 14px;height:auto;flex-wrap:wrap}.brand{padding-right:12px}.brand img{height:30px}.brand-text{font-size:20px}.tool h1{font-size:22px}.mast .dev{padding-right:0;border-right:0;font-size:11.5px}.tabs{margin-left:0;width:100%;border-top:1px solid rgba(255,255,255,.25);padding-top:4px}.tabs button{padding:6px 10px;font-size:16px}}
 
 /* views */
@@ -951,15 +958,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 </style>
 
+</head>
+<body>
 <div class="brandbar"></div>
 <header class="mast">
   <a class="brand" href="https://www.bibliotecanacional.gov.co/es-co/colecciones/biblioteca-digital/mapoteca/Paginas/index.aspx" target="_blank" rel="noopener" title="Ir a la Mapoteca Digital">
     <img id="brand-logo" src="https://www.bibliotecanacional.gov.co/Assets/mapoteca/img/logos/logo-mapoteca.svg" alt="" hidden onload="this.hidden=false" onerror="this.hidden=true">
     <span id="brand-text" class="brand-text">Mapoteca<small>Biblioteca Nacional de Colombia</small></span>
   </a>
-  <div class="tool"><h1>Derrotero</h1><span class="tagline">Buscador geográfico de la colección</span></div>
+  <div class="tool"><h1>Derrotero:</h1><span class="tagline">explorador geográfico de la Mapoteca Digital de la BNC</span></div>
   <span class="count" id="mast-count"></span>
-  <span class="dev"><span class="dev-k">Desarrollo</span>Sebastián Díaz Ángel</span>
+  <span class="dev" title="Concepción, diseño, fuentes y validación: Sebastián Díaz Ángel; desarrollo asistido por IA (Claude)"><span class="dev-k">Concepción, diseño, fuentes y validación</span>Sebastián Díaz Ángel <span class="dev-ai">· desarrollo asistido por IA (Claude)</span></span>
   <nav class="tabs" role="tablist" aria-label="Secciones">
     <button role="tab" id="tab-explorar" aria-selected="true" aria-controls="explorar">Explorar</button>
     <button role="tab" id="tab-panorama" aria-selected="false" aria-controls="panorama">Panorama</button>
@@ -1072,7 +1081,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <h3>Registros para revisar</h3>
     <p class="note" style="margin-bottom:12px">Casos en los que las coordenadas se corrigieron, se aproximaron o merecen verificación. El mismo listado se entrega como hoja de cálculo.</p>
     <div id="qa"></div>
-    <p class="note" style="margin-top:28px">Derrotero es una herramienta de la Mapoteca Digital de la Biblioteca Nacional de Colombia. Desarrollo: Sebastián Díaz Ángel. Mapa base: Natural Earth (dominio público), simplificado. Inventario: Mapoteca Digital, versión 2025.7. Dentro de claude.ai la página no puede cargar teselas ni imágenes de otros dominios; abierta como archivo local o alojada en un servidor propio, ofrece además mapas base de Esri (gris y relieve, sin clave de API) muestra las miniaturas del catálogo en la lista y en la ficha de cada mapa, y superpone sobre el visor el mapa seleccionado (georreferenciado desde Map Warper cuando está rectificado; si no, la imagen ajustada a su huella).</p>
+    <p class="note" style="margin-top:28px">Derrotero es el explorador geográfico de la Mapoteca Digital de la Biblioteca Nacional de Colombia. Concepción, diseño, fuentes y validación: Sebastián Díaz Ángel; desarrollo asistido por IA (Claude). Mapa base: Natural Earth (dominio público), simplificado. Inventario: Mapoteca Digital, versión 2025.7. Dentro de claude.ai la página no puede cargar teselas ni imágenes de otros dominios; abierta como archivo local o alojada en un servidor propio, ofrece además mapas base de Esri (gris y relieve, sin clave de API) muestra las miniaturas del catálogo en la lista y en la ficha de cada mapa, y superpone sobre el visor el mapa seleccionado (georreferenciado desde Map Warper cuando está rectificado; si no, la imagen ajustada a su huella).</p>
   </div>
 </section>
 </main>
@@ -1771,4 +1780,6 @@ document.fonts && document.fonts.ready.then(() => { overlay.reset(); });
 })();
 </script>
 
-</body></html>
+
+</body>
+</html>
